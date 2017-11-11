@@ -53,36 +53,203 @@ Purpose: violation with a node's uncle which is red is
 triggered which tests to see if the parent, grandparent and uncle
 are recolored correctly
 
-Input: LBlackUTriangle.txt
-Output:
-Purpose: violation with a node's uncle which is black where
-the node is the left child of a red parent who is the right
-child of the node's grandparent. Tests to see if
-a right rotation on parent is executed correclty.
+Input: RBlackULine.txt
+Output: The tree using pre-order
+	This Nodes Data:
+	7
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	6
+	This Nodes Colouring:
+	0
+	This Nodes Data:
+	9
+	This Nodes Colouring:
+	0
 
-Input: LBlackULine.txt
-Output:
+	The tree using in-order
+	This Nodes Data:
+	6
+	This Nodes Colouring:
+	0
+	This Nodes Data:
+	7
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	9
+	This Nodes Colouring:
+	0
+
 Purpose: violation with a node's uncle which is black where
 the node is the right child of a red parent who is a right
 child of the node's grandparent. Test to if the
 left rotatation of the parent is executed correctly.
 
-Input: RBlackUTriangle.txt
-Output:
-Purpose: violation with a node's uncle which is black where
-the node is the right child of a red parent who is a left
-child of the node's grandparent. Test to if the
-left rotatation of the parent is executed correctly.
 
-Input: RBlackULine.txt
-Output:
+Input: RBlackUTriangle.txt
+Output: The tree using pre-order
+	This Nodes Data:
+	6
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	5
+	This Nodes Colouring:
+	0
+	This Nodes Data:
+	7
+	This Nodes Colouring:
+	0
+
+	The tree using in-order
+	This Nodes Data:
+	5
+	This Nodes Colouring:
+	0
+	This Nodes Data:
+	6
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	7
+	This Nodes Colouring:
+	0
+
+Purpose: violation with a node's uncle which is black where
+the node is the left child of a red parent who is the right
+child of the node's grandparent. Tests to see if
+a right rotation on parent followed by a left rotation on nodes
+grandparent is executed correclty.
+
+Input: LBlackULine.txt
+Output: The tree using pre-order
+	This Nodes Data:
+	2
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	1
+	This Nodes Colouring:
+	0
+	This Nodes Data:
+	3
+	This Nodes Colouring:
+	0
+
+	The tree using in-order
+	This Nodes Data:
+	1
+	This Nodes Colouring:
+	0
+	This Nodes Data:
+	2
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	3
+	This Nodes Colouring:
+	0
 Purpose: violation with a node's uncle which is black where
 the node is the left child of a red parent who is a left
 child of the node's grandparent. Test to if the
-right rotatation of the parent is executed correctly.
+right rotatation of the grandparent is executed correctly.
+
+
+Input: LBlackUTriangle.txt
+Output: This Nodes Data:
+	3
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	2
+	This Nodes Colouring:
+	0
+	This Nodes Data:
+	4
+	This Nodes Colouring:
+	0
+
+	The tree using in-order
+	This Nodes Data:
+	2
+	This Nodes Colouring:
+	0
+	This Nodes Data:
+	3
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	4
+	This Nodes Colouring:
+	0
+Purpose: violation with a node's uncle which is black where
+the node is the right child of a red parent who is a left
+child of the node's grandparent. Test to see if a
+left rotatation of the parent followed by a right rotation on the
+nodes grandparent is executed correctly.
 
 Input: testAll.txt
-Output:
+Output: The tree using pre-order
+	This Nodes Data:
+	12
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	10
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	9
+	This Nodes Colouring:
+	0
+	This Nodes Data:
+	11
+	This Nodes Colouring:
+	0
+	This Nodes Data:
+	17
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	15
+	This Nodes Colouring:
+	0
+	This Nodes Data:
+	18
+	This Nodes Colouring:
+	0
+
+	The tree using in-order
+	This Nodes Data:
+	9
+	This Nodes Colouring:
+	0
+	This Nodes Data:
+	10
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	11
+	This Nodes Colouring:
+	0
+	This Nodes Data:
+	12
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	15
+	This Nodes Colouring:
+	0
+	This Nodes Data:
+	17
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	18
+	This Nodes Colouring:
+	0
 Purpose: Test to see if when all of the above violation
 occur if they execute in the correct order to satify the Red
 Black Tree conditions. 
