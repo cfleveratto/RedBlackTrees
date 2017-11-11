@@ -99,7 +99,6 @@ class RBNode {
       delete left;
     if (right != NULL)
       delete right;
-    delete data;
   };
   
 };
