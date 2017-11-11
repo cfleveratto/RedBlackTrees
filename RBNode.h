@@ -91,6 +91,17 @@ class RBNode {
       colour = RED;
   };
   
+  // PRE: This object satisfies the CI.
+  // POST: All dynamic memory allocated for this object (except any
+  //         data allocated for T objects) is deallocated.
+  ~RBNode<T>() {
+    if (left != NULL) 
+      delete left;
+    if (right != NULL)
+      delete right;
+    delete data;
+  };
+  
 };
 
 #endif

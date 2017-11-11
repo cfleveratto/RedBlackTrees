@@ -179,7 +179,7 @@ class RBTree {
   // POST: All dynamic memory allocated for this object (except any
   //         data allocated for T objects) is deallocated.
   ~RBTree<T>() {
-    // FILL IN CODE HERE
+    delete root;
   };
 };
 
