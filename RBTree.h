@@ -22,7 +22,7 @@ class RBTree {
   
   //PRE: None
   //POST: this object is empty
-  RBNode<T>  () {
+  RBTree<T>  () {
     root = NULL;
     numElements = 0;
   };
