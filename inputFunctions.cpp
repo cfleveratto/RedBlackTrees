@@ -15,7 +15,7 @@ void makeTree(RBTree<int> & tree, char * fileName) {
   if (inFile != NULL) {
     int readInt; //will hold int that was read in
     while (inFile >> readInt) {
-      cout << readInt << endl;
+      tree.insert(readInt);
     }
   }
   else cout << "File does not exist" << endl;

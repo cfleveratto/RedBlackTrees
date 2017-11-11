@@ -1,8 +1,7 @@
 #ifndef INCLUDED_INPUT
 #define INCLUDED_INPUT
 #include "RBTree.h"
-#define SPACE ' '
-#define NEWLINE '\n'
+#include "constants.h"
 
 //PRE: fileName is a pointer to a character array containing
 //the name of a file.

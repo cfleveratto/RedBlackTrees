@@ -6,9 +6,11 @@ testRBTree: $(objects)
 useRBTree.o: RBTree.h inputFunctions.h useRBTree.cpp
 	g++ -c useRBTree.cpp
 
-RBTree.h: RBNode.h
+RBTree.h: RBNode.h constants.h
 
-inputFunctions.o: RBTree.h inputFunctions.h inputFunctions.cpp
+RBNode.h: constants.h
+
+inputFunctions.o: constants.h RBTree.h inputFunctions.h inputFunctions.cpp
 	g++ -c inputFunctions.cpp
 
 clean:
