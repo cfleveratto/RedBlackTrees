@@ -32,18 +32,19 @@ class RBTree {
   //      all paths from a RBNode to all subNodes contain
   //the same number of black RBNodes.
   void insertFixUp(RBNode<T> * checkNode) {
-    while (!(checkNode->getParent()->getColour())) {
-      //ASSERT: that checkNodes parent is not RED.
+    while ((checkNode->getParent() != NULL) &&
+	   !(checkNode->getParent()->getColour())) {
+      //ASSERT: that checkNodes parent exists and is not RED.
       RBNode<T> * parent = checkNode->getParent();
       RBNode<T> * grandParent = checkNode->getParent()->getParent();
       if (parent == grandParent->getLeft()) {
 	//ASSERT: checkNodes parent is the left child of
 	//checkNode's grandparent.
 	RBNode<T> * uncle = grandParent->getRight();
-	if (uncle->getColour() == RED) {
-	  parent->changeColour();
-	  uncle->changeColour();
-	  grandParent->changeColour();
+	if ((uncle != NULL) && (uncle->getColour() == RED)) {
+	  parent->changeColour(BLACK);
+	  uncle->changeColour(BLACK);
+	  grandParent->changeColour(RED);
 	  checkNode = grandParent;
 	  //ASSERT: checkNode's parent, grandParent, and uncle
 	  //were recoloured.  
@@ -60,8 +61,8 @@ class RBTree {
 	}
 
 	else {
-	  parent->changeColour();
-	  grandParent->changeColour();
+	  parent->changeColour(BLACK);
+	  grandParent->changeColour(RED);
 	  rightRotate(grandParent);
 	  //ASSERT: checkNode's parent and grandParent were
 	  //recoloured and checkNode's grandparent was rotated
@@ -72,10 +73,10 @@ class RBTree {
 	//ASSERT: checkNodes parent is the right child of
 	//checkNode's grandparent.
 	RBNode<T> * uncle = grandParent->getLeft();
-	if (uncle->getColour() == RED) {
-	  parent->changeColour();
-	  uncle->changeColour();
-	  grandParent->changeColour();
+	if ((uncle != NULL) && (uncle->getColour() == RED)) {
+	  parent->changeColour(BLACK);
+	  uncle->changeColour(BLACK);
+	  grandParent->changeColour(RED);
 	  checkNode = grandParent;
 	  //ASSERT: checkNode's parent, grandParent, and uncle
 	  //were recoloured.  
@@ -90,8 +91,8 @@ class RBTree {
 	  //to the right 
 	}
 	else {
-	  parent->changeColour();
-	  grandParent->changeColour();
+	  parent->changeColour(BLACK);
+	  grandParent->changeColour(RED);
 	  leftRotate(grandParent);
 	  //ASSERT: checkNode's parent and grandParent were
 	  //recoloured and checkNode's grandparent was rotated
@@ -99,6 +100,7 @@ class RBTree {
 	}
       }	
     }
+    root->changeColour(BLACK);
   };
 
   //PRE: rotationNode points to a RBNode object that is
@@ -179,20 +181,18 @@ class RBTree {
   //currNode is not a NULL Node
   void traversePre(RBNode<T> * currNode) const{
     if (currNode != NULL) {
-      cout << currNode->getData();
-      if (currNode->getLeft() != NULL) {
-	traversePre(currNode->getLeft());
-	//ASSERT: currNodes left childs data is printed out
-	//then traverse to the left most Node followed by its
-	//right most Node iff currNode is not a NULL Node
-      }
-      if (currNode->getRight() != NULL) {
-	traversePre(currNode->getRight());
-	//ASSERT: currNodes right childs data is printed out
-	//then traverse to the left most Node followed by its
-	//right most Node iff currNode is not a NULL Node
-      }
-      
+      cout << "This Nodes Data:\n";
+      cout << currNode->getData() << endl;
+      cout << "This Nodes Colouring:\n"
+	   << currNode->getColour() << endl;
+      traversePre(currNode->getLeft());
+      //ASSERT: currNodes left childs data is printed out
+      //then traverse to the left most Node followed by its
+      //right most Node iff currNode is not a NULL Node      
+      traversePre(currNode->getRight());
+      //ASSERT: currNodes right childs data is printed out
+      //then traverse to the left most Node followed by its
+      //right most Node iff currNode is not a NULL Node
     }
   };
 
@@ -204,21 +204,20 @@ class RBTree {
   //iff currNode is not a NULL Node;
   void traverseIn(RBNode<T> * currNode) const{
     if (currNode != NULL) {
-      if (currNode->getLeft() != NULL) {
-	traversePre(currNode->getLeft());
-	//ASSERT: the left most Node of currNodes left child
-	//is traversed, returns and prints out the left
-	//childs data. It then traverse to the left childs
-	//right most Node. 
-      }
-      cout << currNode->getData();
-      if (currNode->getRight() != NULL) {
-	traversePre(currNode->getRight());
-	//ASSERT: the left most Node of currNodes right child
-	//is traversed, returns and prints out the right
-	//childs data. It then traverse to the right childs
-	//right most Node. 
-      }
+      traverseIn(currNode->getLeft());
+      //ASSERT: the left most Node of currNodes left child
+      //is traversed, returns and prints out the left
+      //childs data. It then traverse to the left childs
+      //right most Node. 
+      cout << "This Nodes Data:\n";
+      cout << currNode->getData() << endl;
+      cout << "This Nodes Colouring:\n"
+	   << currNode->getColour() << endl;
+      traverseIn(currNode->getRight());
+      //ASSERT: the left most Node of currNodes right child
+      //is traversed, returns and prints out the right
+      //childs data. It then traverse to the right childs
+      //right most Node. 
     }
   };
 	  
@@ -265,17 +264,17 @@ class RBTree {
       //ASSERT: newNode is a child of an existing RBNode in
       //this tree and that the same existing RBNode now has
       //newNode as a child.
-      insertFixUp(newNode);
-      //ASSERT: the RBNodes in this tree are either red or
-      //black.
-      //        the RBNode that root points to is black
-      //        if a RBNode is red, then its children are
-      //black.
-      //        all path from a RBNode to all subNodes contain
-      //the same number of black RBNodes.
     }
+    insertFixUp(newNode);
+    //ASSERT: the RBNodes in this tree are either red or
+    //black.
+    //        the RBNode that root points to is black
+    //        if a RBNode is red, then its children are
+    //black.
+    //        all path from a RBNode to all subNodes contain
+    //the same number of black RBNodes.
+    numElements++;
   };
-
   // PRE: This object satisfies the CI.
   // POST: OS contains information for each node using pre-order
   //         traversal. 
@@ -284,7 +283,7 @@ class RBTree {
     if (currNode != NULL)
       traversePre(currNode);
     else
-            cout << "This Red Black Tree is empty.\n";
+      cout << "This Red Black Tree is empty.\n";
   };
 
   // PRE: This object satisfies the CI.

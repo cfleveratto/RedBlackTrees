@@ -17,6 +17,7 @@ void makeTree(RBTree<int> & tree, char * fileName) {
     while (inFile >> readInt) {
       tree.insert(readInt);
     }
+    inFile.close();
   }
   else cout << "File does not exist" << endl;
   //ASSERT: all integers were read in from the stream iff

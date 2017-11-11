@@ -1,12 +1,56 @@
 Input: root.txt
-Output:
+Output: The tree using pre-order
+	This Nodes Data:
+	4
+	This Nodes Colouring:
+	1
+
+	The tree using in-order
+	This Nodes Data:
+	4
+	This Nodes Colouring:
+	1
 Purpose: violation at the root is triggered which tests to
 see if nodes are recolored correctly.
 
 Input: redUncle.txt
-Output:
+Output: The tree using pre-order
+	This Nodes Data:
+	4
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	2
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	6
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	5
+	This Nodes Colouring:
+	0
+
+	The tree using in-order
+	This Nodes Data:
+	2
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	4
+	This Nodes Colouring:
+	1
+	This Nodes Data:
+	5
+	This Nodes Colouring:
+	0
+	This Nodes Data:
+	6
+	This Nodes Colouring:
+	1
 Purpose: violation with a node's uncle which is red is
-triggered which tests to see if the grandparent and uncle
+triggered which tests to see if the parent, grandparent and uncle
 are recolored correctly
 
 Input: LBlackUTriangle.txt

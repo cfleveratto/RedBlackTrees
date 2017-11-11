@@ -84,11 +84,8 @@ class RBNode {
     right = rightChild;
   };
 
-  void changeColour() {
-    if (colour == RED)
-      colour = BLACK;
-    else
-      colour = RED;
+  void changeColour(bool newColour) {
+    colour = newColour;
   };
   
   // PRE: This object satisfies the CI.
