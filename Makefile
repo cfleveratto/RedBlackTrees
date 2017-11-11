@@ -1,4 +1,4 @@
-objects = useRBTree.o inputFunctions.o useRBTree.o
+objects = useRBTree.o inputFunctions.o
 
 testRBTree: $(objects)
 	g++ $(objects) -o testRBTree
