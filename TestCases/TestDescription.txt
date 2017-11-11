@@ -1,0 +1,46 @@
+Input: root.txt
+Output:
+Purpose: violation at the root is triggered which tests to
+see if nodes are recolored correctly.
+
+Input: redUncle.txt
+Output:
+Purpose: violation with a node's uncle which is red is
+triggered which tests to see if the grandparent and uncle
+are recolored correctly
+
+Input: LBlackUTriangle.txt
+Output:
+Purpose: violation with a node's uncle which is black where
+the node is the left child of a red parent who is the right
+child of the node's grandparent. Tests to see if
+a right rotation on parent is executed correclty.
+
+Input: LBlackULine.txt
+Output:
+Purpose: violation with a node's uncle which is black where
+the node is the right child of a red parent who is a right
+child of the node's grandparent. Test to if the
+left rotatation of the parent is executed correctly.
+
+Input: RBlackUTriangle.txt
+Output:
+Purpose: violation with a node's uncle which is black where
+the node is the right child of a red parent who is a left
+child of the node's grandparent. Test to if the
+left rotatation of the parent is executed correctly.
+
+Input: RBlackULine.txt
+Output:
+Purpose: violation with a node's uncle which is black where
+the node is the left child of a red parent who is a left
+child of the node's grandparent. Test to if the
+right rotatation of the parent is executed correctly.
+
+Input: testAll.txt
+Output:
+Purpose: Test to see if when all of the above violation
+occur if they execute in the correct order to satify the Red
+Black Tree conditions. 
+
+
