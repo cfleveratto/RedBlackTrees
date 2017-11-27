@@ -1,0 +1,35 @@
+Good test cases.
+
+Program does not print out the data in the parent node.
+
+In makeTree, you are using a side-effect of the >> operator
+    while (inFile >> readInt) {
+      tree.insert(readInt);
+    }
+Explicitly use eof instead.
+
+In traversePre you have
+    if (currNode != NULL) {
+      cout << "This Nodes Data:\n";
+      cout << currNode->getData() << endl;
+      cout << "This Nodes Colouring:\n"
+	   << currNode->getColour() << endl;
+Instead have an overloaded operator in the Node class and use
+      cout << currNode;
+
+You were also supposed to print the height of the subtree at each
+node, and the balance factor at each node. You are not storing the
+height in the node, nor are you computing it anywhere.
+
+Good comments and pre/post conditions.
+
+Good program structure.
+
+Test Cases     30/30
+Correctness    35/40
+Documentation  20/25
+Submission      5/5
+
+
+Total          90/100
+
